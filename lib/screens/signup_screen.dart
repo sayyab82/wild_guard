@@ -30,7 +30,6 @@ class _SignUpScreenState extends State<SignUpScreen>
   void initState() {
     super.initState();
 
-    // Animation Controllers
     _welcomeController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 1200),
@@ -41,7 +40,6 @@ class _SignUpScreenState extends State<SignUpScreen>
       duration: Duration(milliseconds: 500),
     );
 
-    // Animations
     _welcomeFadeAnimation = CurvedAnimation(
       parent: _welcomeController,
       curve: Curves.easeIn,
@@ -85,7 +83,6 @@ class _SignUpScreenState extends State<SignUpScreen>
 
     List<String> errors = [];
 
-    // Using ValidationUtils for validation
     if (!ValidationUtils.isValidEmail(email)) {
       errors.add("Invalid email format. Example: name@example.com");
     }
@@ -99,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen>
     if (errors.isNotEmpty) {
       for (var error in errors) {
         _showToast(error);
-        await Future.delayed(const Duration(seconds: 1)); // Optional delay
+        await Future.delayed(const Duration(seconds: 1));
       }
       return;
     }
@@ -131,21 +128,22 @@ class _SignUpScreenState extends State<SignUpScreen>
 
   ButtonStyle _buttonStyle() {
     return ElevatedButton.styleFrom(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF9A5525), // Matching Wild Guard theme
       padding: const EdgeInsets.symmetric(vertical: 14),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: 5,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background Image
           SizedBox(
             height: screenHeight,
             width: double.infinity,
@@ -156,8 +154,6 @@ class _SignUpScreenState extends State<SignUpScreen>
               colorBlendMode: BlendMode.darken,
             ),
           ),
-
-          // Form
           Positioned.fill(
             child: Column(
               children: [
@@ -179,7 +175,6 @@ class _SignUpScreenState extends State<SignUpScreen>
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          // Heading with FadeTransition animation
                           FadeTransition(
                             opacity: _welcomeFadeAnimation,
                             child: Row(
@@ -221,7 +216,6 @@ class _SignUpScreenState extends State<SignUpScreen>
                           ),
                           const SizedBox(height: 15),
 
-                          // Password field with toggle
                           TextField(
                             key: const Key("password_field"),
                             controller: _passwordController,
@@ -256,29 +250,33 @@ class _SignUpScreenState extends State<SignUpScreen>
                           ),
                           const SizedBox(height: 25),
 
-                          // Button with ScaleTransition animation
                           ScaleTransition(
                             scale: _buttonScaleAnimation,
-                            child: ElevatedButton(
-                              key: const Key("signup_button"),
-                              onPressed: _isLoading ? null : _handleSignUp,
-                              style: _buttonStyle(),
-                              child:
-                                  _isLoading
-                                      ? const SizedBox(
-                                        width: 24,
-                                        height: 24,
-                                        child: CircularProgressIndicator(
-                                          strokeWidth: 2,
+                            child: SizedBox(
+                              width: screenWidth,
+                              child: ElevatedButton(
+                                key: const Key("signup_button"),
+                                onPressed: _isLoading ? null : _handleSignUp,
+                                style: _buttonStyle(),
+                                child:
+                                    _isLoading
+                                        ? const SizedBox(
+                                          width: 24,
+                                          height: 24,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                        : const Text(
+                                          "Next",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      )
-                                      : const Text(
-                                        "Next",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Color(0xFF9A5525),
-                                        ),
-                                      ),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 12),
@@ -304,8 +302,6 @@ class _SignUpScreenState extends State<SignUpScreen>
               ],
             ),
           ),
-
-          // Welcome Texts with FadeTransition animation
           Positioned(
             top: screenHeight * 0.15,
             left: 0,

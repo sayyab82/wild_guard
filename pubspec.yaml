@@ -1,0 +1,47 @@
+name: wild_guard
+description: "Software Engineer Batch 2K21"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  page_transition: ^2.2.1
+  camera: ^0.10.5+2  # Check the latest version before adding
+  image_picker: ^1.0.7  # Latest version
+  flutter_launcher_icons: ^0.14.3
+  firebase_core: ^2.32.0
+  firebase_auth: ^4.17.9
+  fluttertoast: ^8.2.2
+  google_sign_in: ^6.1.4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  provider: ^6.0.0
+  mockito: ^5.0.17  # Make sure to use the correct version compatible with your Flutter version
+  test: ^1.16.7 
+  my_app: ^1.0.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/paw.orange.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icon/paw.orange.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/Lion.png
+    - assets/icon/paw.png
+    - assets/icon/paw.orange.png
+    - assets/images/profile.jpg
+    - assets/images/bear.jpg

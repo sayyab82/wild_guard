@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1013995385216",
+    "project_id": "wildguard-c36ed",
+    "storage_bucket": "wildguard-c36ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013995385216:android:2adbafcbcd29dbd8779165",
+        "android_client_info": {
+          "package_name": "com.company.wildguard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzikB2qbfejILPtQyyFj1CccCcX9rCPzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013995385216:android:eced89e16168ba65779165",
+        "android_client_info": {
+          "package_name": "com.example.my_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzikB2qbfejILPtQyyFj1CccCcX9rCPzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
